@@ -24,7 +24,7 @@
 
 
     \begin{equation}
-      f_X(x) = {\displaystyle {\frac {1}{\sqrt {2\pi \sigma ^{2}}}}\,e^{-{\frac {(x-\mu )^{2}}{2\sigma ^{2}}}}} \implies f_X(x) = \frac{1}{\sqrt{2\pi} } e^{-x/2}
+      f_X(x) = {\displaystyle {\frac {1}{\sqrt {2\pi \sigma ^{2}}}}\,e^{-{\frac {(x-\mu )^{2}}{2\sigma ^{2}}}}} \implies f_X(x) = \frac{1}{\sqrt{2\pi} } e^{-\frac{x^2}{2}}
     \end{equation}
 
 
@@ -46,18 +46,76 @@
               =& 2f_X \left( \sqrt{y} \right) \left| \frac{d}{dy} g^{-1} (y) \right| &\\
               =& 2f_X \left( \sqrt{y} \right) \left| \pm \frac{1}{2\sqrt{y}} \right| &\\
               =& 2f_X \left( \sqrt{y} \right) \frac{1}{2\sqrt{y}} &\\
-              =& 2\frac{1}{\sqrt{2\pi} } e^{-y/2} \frac{1}{2\sqrt{y}}  & \\
-              =& \frac{e^{-y/2}}{ \sqrt{2\pi} \sqrt{y} } & \quad 0<y<\infty
+              =& 2\frac{1}{\sqrt{2\pi} } e^{-\frac{y}{2}} \frac{1}{2\sqrt{y}}  & \\
+              =& \frac{e^{-\frac{y}{2}}}{ \sqrt{2\pi} \sqrt{y} } & 0<y<\infty
     \end{align}
+
+    \begin{figure}
+      \center
+      \begin{tikzpicture}
+          \begin{axis}[
+            legend pos=outer north east,
+            grid=both,
+            every axis plot/.append style={ultra thick}
+          ]
+            \addplot[color=blue][domain=-7.5:7.5]{e^(- (x^2 / 2))/(sqrt(2 * pi))};
+            \addplot[color=red][domain=0:7.5] {e^(-x / 2)/(sqrt(2 * pi)*sqrt(x))};
+          \legend{ $f_X(x)$, $f_Y(x)$}
+          \end{axis}
+      \end{tikzpicture}
+      \caption{}
+      \label{}
+    \end{figure}
 
     \paragraph{}
     Debido a
 
-  \section{Sea $X$ una v. a. uniformemente distribuida en $[0,2\pi]$, es decir, con función de densidad $f(x)=\frac{1}{2\pi} if x \in (0,2\pi)$. Hallar la función de densidad de la v.a. $Y = cos(X)$}
+  \section{Sea $X$ una v. a. uniformemente distribuida en $[0,2\pi]$, es decir, con función de densidad $f(x)=\frac{1}{2\pi}, \ x \in (0,2\pi)$. Hallar la función de densidad de la v.a. $Y = \cos(X)$}
 
     \paragraph{}
     [TODO]
 
+
+    \begin{equation}
+      f_X(x) = \frac{1}{2\pi}
+    \end{equation}
+
+
+    \begin{align}
+      g(x) =& \cos(x) \\
+      g^{-1}(x) =& \arccos(x) \\
+      \left| \frac{d}{dx} g^{-1} (x) \right| =& \left| - \frac{x}{\sqrt{1-x^2}} \right| =  \frac{x}{\sqrt{1-x^2}}
+    \end{align}
+
+    \begin{equation}
+    \label{eq:density_transformation_technique}
+      f_Y (y) = \sum f_X \left( g^{-1} (y) \right) \left| \frac{d}{dy} g^{-1} (y) \right|
+    \end{equation}
+
+    \begin{figure}
+      \center
+      \begin{tikzpicture}
+          \begin{axis}[
+            legend pos=outer north east,
+            grid=both,
+            every axis plot/.append style={ultra thick}
+          ]
+            \addplot[color=blue][domain=0:2*pi]{1/(2*pi)};
+            \addplot[color=red][domain=-0.9:0.9] {1 / (pi * sqrt(1-x^2))};
+          \legend{ $f_X(x)$, $f_Y(x)$}
+          \end{axis}
+      \end{tikzpicture}
+      \caption{}
+      \label{}
+    \end{figure}
+
+    \begin{align}
+      f_Y (y) =& &\\
+              =& \sum f_X \left( g^{-1} (y) \right) \left| \frac{d}{dy} g^{-1} (y) \right| &\\
+              =& 2\frac{1}{2\pi} \left| \frac{d}{dy} g^{-1} (y) \right| &\\
+              =& 2\frac{1}{2\pi}*\frac{1}{\sqrt{1-y^2}} &\\
+              =& \frac{1}{\pi\sqrt{1-y^2}} & -1<y<1
+    \end{align}
 %-----------------------------
 %	Bibliographic references
 %-----------------------------
