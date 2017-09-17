@@ -39,6 +39,26 @@
       f_Y (y) = \sum f_X \left( g^{-1} (y) \right) \left| \frac{d}{dy} g^{-1} (y) \right|
     \end{equation}
 
+    \begin{figure}
+      \center
+      \begin{tikzpicture}
+          \begin{axis}[
+            legend style={
+              at={(0.5,-0.1)},
+              anchor=north
+            },
+            grid=both,
+            xtick distance=2,
+            every axis plot/.append style={ultra thick}
+          ]
+            \addplot[color=blue][domain=-7.5:7.5]{x^2};
+          \legend{$y = g(x) = \cos{x}$}
+          \end{axis}
+      \end{tikzpicture}
+      \caption{}
+      \label{}
+    \end{figure}
+
     \begin{align}
       f_Y (y) =& &\\
               =& \sum f_X \left( g^{-1} (y) \right) \left| \frac{d}{dy} g^{-1} (y) \right| &\\
@@ -54,7 +74,10 @@
       \center
       \begin{tikzpicture}
           \begin{axis}[
-            legend pos=outer north east,
+            legend style={
+              at={(0.5,-0.1)},
+              anchor=north
+            },
             grid=both,
             xtick distance=2,
             ytick distance=0.1,
@@ -89,6 +112,27 @@
       \left| \frac{d}{dx} g^{-1} (x) \right| =& \left| - \frac{1}{\sqrt{1-x^2}} \right| =  \frac{1}{\sqrt{1-x^2}}
     \end{align}
 
+    \begin{figure}
+      \center
+      \begin{tikzpicture}
+          \begin{axis}[
+            legend style={
+              at={(0.5,-0.1)},
+              anchor=north
+            },
+            grid=both,
+            xtick distance=1,
+            ytick distance=0.5,
+            every axis plot/.append style={ultra thick}
+          ]
+            \addplot[color=blue][domain=0:2*pi]{cos(deg(x))};
+          \legend{$y = g(x) = \cos{x}$}
+          \end{axis}
+      \end{tikzpicture}
+      \caption{}
+      \label{}
+    \end{figure}
+
     \begin{equation}
     \label{eq:density_transformation_technique}
       f_Y (y) = \sum f_X \left( g^{-1} (y) \right) \left| \frac{d}{dy} g^{-1} (y) \right|
@@ -98,7 +142,10 @@
       \center
       \begin{tikzpicture}
           \begin{axis}[
-            legend pos=outer north east,
+            legend style={
+              at={(0.5,-0.1)},
+              anchor=north
+            },
             grid=both,
             xtick distance=1,
             ytick distance=0.1,
