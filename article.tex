@@ -56,6 +56,8 @@
           \begin{axis}[
             legend pos=outer north east,
             grid=both,
+            xtick distance=2,
+            ytick distance=0.1,
             every axis plot/.append style={ultra thick}
           ]
             \addplot[color=blue][domain=-7.5:7.5]{e^(- (x^2 / 2))/(sqrt(2 * pi))};
@@ -98,6 +100,8 @@
           \begin{axis}[
             legend pos=outer north east,
             grid=both,
+            xtick distance=1,
+            ytick distance=0.1,
             every axis plot/.append style={ultra thick}
           ]
             \addplot[color=blue][domain=0:2*pi]{1/(2*pi)};
